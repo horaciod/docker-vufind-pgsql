@@ -9,7 +9,7 @@ To get a running vufind
 - get the tar from https://vufind.org (I've made te tests with 6.11)
 - extract the files in src folder 
 - run with docker-composer up -d 
-- is possible to enterin each container with bash 
+- is possible to enter on  each container with bash to run scripts 
 
 Next steps
 
