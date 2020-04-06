@@ -1,0 +1,38 @@
+version: "3.3"
+services:
+  vu_solr:
+    tty: true
+    image: "openjdk:jdk-buster"
+    working_dir: /usr/local/vufind
+    user: 1000:1000
+    volumes:
+      - "/datos/docker/v2/src/vufind:/usr/local/vufind"
+    container_name: vufind611
+    environment:
+      - VUFIND_LOCAL_DIR=/usr/local/vufind
+      - VUFIND_LOCAL_DIR=/usr/local/vufind/local
+      - SOLR_ADDITIONAL_START_OPTIONS=-f
+    ports:
+      - "8080:8080"
+    command: "./solr.sh -force start "
+  vu_web:
+    image: chialab/php:7.2-apache
+    container_name: vufindweb
+    #user: 1000:1000
+    ports:
+        - "80:80"
+    volumes:
+      - "/datos/docker/v2/src/vufind:/usr/local/vufind"
+      - "/datos/docker/v2/scripts:/usr/local/scripts"
+    command: "/usr/local/scripts/runwebserver.sh"  
+  vu_db:
+    image: postgres:12
+    container_name: vufinddb
+    user: 1000:1000
+    #  restart: false
+    volumes:
+      - /datos/docker/v2/pgdata:/var/lib/postgresql/data
+    ports:
+      - "54323:5432"
+    environment:
+      POSTGRES_PASSWORD: vufind
