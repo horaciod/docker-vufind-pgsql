@@ -1,8 +1,7 @@
 # docker-vufind-pgsql
 Docker compose recipe for running vufind.org with postgresql (3 containers: solr, webserver/cli and postgresql) 
 
-article soon... 
-
+[Article](https://dev.to/horaciodegiorgi/vufind-up-and-running-in-docker-containers-3pi8)
 
 To get a running vufind 
 
