@@ -17,4 +17,5 @@ Next steps
 - create an .env file to put the password and ports.
 - create and script to run the internal commands as "import-marc.sh" and others.
 
+fixed open in visual studio
 
